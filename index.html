@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+  <meta http-equiv="Pragma" content="no-cache"/>
+  <meta http-equiv="Expires" content="0"/>
+  <title>🌸 Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10 🌸</title>
+  <meta name="description" content="Chúc mừng ngày Phụ Nữ Việt Nam 20 tháng 10 - Tôn vinh vẻ đẹp và sức mạnh của người phụ nữ Việt"/>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose: #e91e8c;
+      --pink: #ff6eb4;
+      --light-pink: #ffb3d9;
+      --gold: #f5c842;
+      --deep-purple: #2d0a2e;
+      --purple: #6a0572;
+      --lavender: #d4a8e0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0d0010 0%, #1a003a 30%, #3d0050 60%, #0d0010 100%);
+      font-family: 'Be Vietnam Pro', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    #fireworks-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .petals-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .petal {
+      position: absolute;
+      top: -60px;
+      font-size: 1.4rem;
+      animation: fall linear infinite;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 6px rgba(255,110,180,0.8));
+    }
+    @keyframes fall {
+      0%   { transform: translateY(0) rotateZ(0deg) scale(1); opacity: 0.9; }
+      100% { transform: translateY(110vh) rotateZ(720deg) scale(0.5); opacity: 0; }
+    }
+
+    .star {
+      position: fixed;
+      border-radius: 50%;
+      background: white;
+      animation: twinkle ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.5); }
+    }
+
+    .main-wrapper {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px 60px;
+    }
+
+    .ribbon-top {
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 12px;
+      animation: shimmer 2s ease-in-out infinite;
+      margin-bottom: 10px;
+    }
+    @keyframes shimmer {
+      0%, 100% { filter: brightness(1); }
+      50%       { filter: brightness(1.6) drop-shadow(0 0 12px #f5c842); }
+    }
+
+    .date-badge {
+      background: linear-gradient(135deg, #e91e8c, #9c27b0, #e91e8c);
+      background-size: 200% 200%;
+      animation: gradMove 3s ease infinite;
+      border-radius: 60px;
+      padding: 10px 36px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 4px;
+      box-shadow: 0 0 30px rgba(233,30,140,0.7), 0 0 60px rgba(233,30,140,0.3);
+      margin-bottom: 24px;
+    }
+    @keyframes gradMove {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      text-align: center;
+      line-height: 1.2;
+      color: white;
+      text-shadow:
+        0 0 20px rgba(233,30,140,1),
+        0 0 60px rgba(233,30,140,0.6),
+        0 0 100px rgba(233,30,140,0.3);
+      animation: titlePulse 3s ease-in-out infinite;
+      margin-bottom: 10px;
+    }
+    @keyframes titlePulse {
+      0%, 100% { text-shadow: 0 0 20px #e91e8c, 0 0 60px rgba(233,30,140,0.6); }
+      50%       { text-shadow: 0 0 40px #ff6eb4, 0 0 100px rgba(255,110,180,0.8), 0 0 160px rgba(245,200,66,0.3); }
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 3vw, 1.7rem);
+      color: var(--lavender);
+      text-align: center;
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.5s forwards;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,110,180,0.3);
+      border-radius: 32px;
+      padding: 40px 36px;
+      max-width: 680px;
+      width: 100%;
+      box-shadow:
+        0 8px 40px rgba(233,30,140,0.2),
+        inset 0 1px 0 rgba(255,255,255,0.15);
+      margin-bottom: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: conic-gradient(from 0deg, transparent 0deg, rgba(233,30,140,0.06) 60deg, transparent 120deg);
+      animation: rotateGlow 8s linear infinite;
+    }
+    @keyframes rotateGlow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .card-inner { position: relative; z-index: 1; }
+
+    .poem-line {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: rgba(255,255,255,0.9);
+      line-height: 2.1;
+      text-align: center;
+    }
+    .poem-line span { color: var(--gold); font-weight: 700; }
+
+    .icon-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin: 20px 0 10px;
+      font-size: 2rem;
+    }
+    .icon-row span {
+      display: inline-block;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+    .icon-row span:nth-child(2) { animation-delay: 0.2s; }
+    .icon-row span:nth-child(3) { animation-delay: 0.4s; }
+    .icon-row span:nth-child(4) { animation-delay: 0.6s; }
+    .icon-row span:nth-child(5) { animation-delay: 0.8s; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-10px) scale(1.2); }
+    }
+
+    .wish-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 860px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .wish-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(233,30,140,0.08));
+      border: 1px solid rgba(255,110,180,0.25);
+      border-radius: 20px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .wish-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 16px 40px rgba(233,30,140,0.35);
+    }
+    .wish-card .wc-icon { font-size: 2.4rem; margin-bottom: 12px; }
+    .wish-card h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.05rem; margin-bottom: 8px; }
+    .wish-card p { color: rgba(255,255,255,0.75); font-size: 0.88rem; line-height: 1.7; }
+
+    .countdown-wrap { text-align: center; margin-bottom: 40px; }
+    .countdown-label { font-family: 'Playfair Display', serif; font-style: italic; color: var(--lavender); font-size: 1rem; margin-bottom: 14px; }
+    .countdown-boxes { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cb { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,110,180,0.3); border-radius: 16px; padding: 14px 22px; min-width: 80px; text-align: center; }
+    .cb-num { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--pink); text-shadow: 0 0 20px rgba(255,110,180,0.8); line-height: 1; }
+    .cb-unit { font-size: 0.7rem; color: rgba(255,255,255,0.5); letter-spacing: 2px; margin-top: 4px; }
+
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      color: var(--gold);
+      text-align: center;
+      text-shadow: 0 0 30px rgba(245,200,66,0.6);
+      margin-bottom: 14px;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+
+    .footer-note { font-size: 0.8rem; color: rgba(255,255,255,0.3); text-align: center; letter-spacing: 1px; }
+
+    .heart-burst {
+      position: fixed;
+      pointer-events: none;
+      z-index: 999;
+      font-size: 1.4rem;
+      animation: burst 1.2s ease-out forwards;
+    }
+    @keyframes burst {
+      0%   { transform: translate(0,0) scale(0.5); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .glass-card { padding: 28px 20px; }
+      .wish-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="fireworks-canvas"></canvas>
+<div class="petals-container" id="petals"></div>
+
+<div class="main-wrapper">
+  <div class="ribbon-top">🌸 ✨ 🌺 ✨ 🌸</div>
+  <div class="date-badge">20 tháng 10</div>
+  <h1 class="hero-title">Chúc Mừng Ngày<br/>Phụ Nữ Việt Nam 🌹</h1>
+  <p class="hero-subtitle">Tôn vinh vẻ đẹp – Trân trọng yêu thương</p>
+
+  <div class="glass-card">
+    <div class="card-inner">
+      <p class="poem-line">
+        Người phụ nữ Việt Nam – <span>kiên cường, dịu dàng</span>,<br/>
+        Mang trên vai cả <span>trời thương, đất nhớ</span>,<br/>
+        Nụ cười chị, nụ cười mẹ, nụ cười em<br/>
+        Là <span>ánh sáng</span> soi đường cho cả thế gian. 🌙
+      </p>
+      <div class="icon-row">
+        <span>🌸</span><span>💐</span><span>🌺</span><span>🌹</span><span>🌼</span>
+      </div>
+      <p class="poem-line" style="font-size:0.95rem; color:rgba(255,255,255,0.7);">
+        Nhân ngày 20/10, xin gửi đến tất cả những người phụ nữ<br/>
+        lời chúc <span>sức khỏe, hạnh phúc và rạng ngời mãi mãi</span> 💖
+      </p>
+    </div>
+  </div>
+
+  <div class="wish-grid">
+    <div class="wish-card">
+      <div class="wc-icon">💪</div>
+      <h3>Kiên Cường</h3>
+      <p>Chúc chị luôn vững vàng trước mọi thử thách, mạnh mẽ như cội nguồn bất khuất của dân tộc.</p>
+    </div>
+    <div class="wish-card">
+      <div class="wc-icon">💖</div>
+      <h3>Hạnh Phúc</h3>
+      <p>Mong chị luôn được yêu thương, trân trọng và có cuộc sống tràn đầy niềm vui, bình an.</p>
+    </div>
+    <div class="wish-card">
+      <div class="wc-icon">🌟</div>
+      <h3>Tỏa Sáng</h3>
+      <p>Chúc chị luôn rạng rỡ, tự tin và tỏa sáng như ngôi sao sáng nhất trên bầu trời đêm.</p>
+    </div>
+    <div class="wish-card">
+      <div class="wc-icon">🌸</div>
+      <h3>Xinh Đẹp</h3>
+      <p>Vẻ đẹp của người phụ nữ Việt vừa dịu dàng, vừa quyến rũ – xin chúc chị luôn xinh tươi.</p>
+    </div>
+    <div class="wish-card">
+      <div class="wc-icon">🏆</div>
+      <h3>Thành Công</h3>
+      <p>Chúc chị đạt được mọi ước mơ, hoàn thành mọi mục tiêu và vươn tới những đỉnh cao mới.</p>
+    </div>
+    <div class="wish-card">
+      <div class="wc-icon">🕊️</div>
+      <h3>Bình An</h3>
+      <p>Nguyện cầu cho chị luôn có bình an trong tâm hồn, gia đình hạnh phúc, cuộc sống êm đềm.</p>
+    </div>
+  </div>
+
+  <div class="countdown-wrap">
+    <p class="countdown-label">🕐 Giờ hiện tại</p>
+    <div class="countdown-boxes">
+      <div class="cb"><div class="cb-num" id="cd-h">00</div><div class="cb-unit">GIỜ</div></div>
+      <div class="cb"><div class="cb-num" id="cd-m">00</div><div class="cb-unit">PHÚT</div></div>
+      <div class="cb"><div class="cb-num" id="cd-s">00</div><div class="cb-unit">GIÂY</div></div>
+    </div>
+  </div>
+
+  <p class="footer-note">🌺 Ngày Phụ Nữ Việt Nam 20 · 10 🌺</p>
+</div>
+
+<script>
+(function createStars() {
+  for (let i = 0; i < 120; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 3 + 1;
+    s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}vh;left:${Math.random()*100}vw;animation-duration:${Math.random()*3+1.5}s;animation-delay:${Math.random()*4}s;`;
+    document.body.appendChild(s);
+  }
+})();
+
+(function createPetals() {
+  const emojis = ['🌸','🌺','🌹','💐','🌼','🌷','✨','💖','⭐'];
+  const container = document.getElementById('petals');
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.fontSize = (Math.random() * 1.2 + 0.8) + 'rem';
+    p.style.animationDuration = (Math.random() * 6 + 5) + 's';
+    p.style.animationDelay = (Math.random() * 8) + 's';
+    container.appendChild(p);
+  }
+})();
+
+(function fireworks() {
+  const canvas = document.getElementById('fireworks-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [], rockets = [];
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  window.addEventListener('resize', resize); resize();
+  const colors = ['#e91e8c','#ff6eb4','#f5c842','#b44af5','#ff4444','#44eeff','#ffffff','#ffb3d9'];
+  function randomColor() { return colors[Math.floor(Math.random() * colors.length)]; }
+  class Particle {
+    constructor(x, y, color) {
+      this.x = x; this.y = y;
+      const angle = Math.random() * Math.PI * 2, speed = Math.random() * 5 + 1;
+      this.vx = Math.cos(angle) * speed; this.vy = Math.sin(angle) * speed;
+      this.alpha = 1; this.color = color; this.radius = Math.random() * 3 + 1;
+      this.gravity = 0.12; this.decay = Math.random() * 0.015 + 0.008;
+    }
+    update() { this.vx *= 0.97; this.vy *= 0.97; this.vy += this.gravity; this.x += this.vx; this.y += this.vy; this.alpha -= this.decay; }
+    draw() { ctx.save(); ctx.globalAlpha = Math.max(0,this.alpha); ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=this.color; ctx.shadowBlur=8; ctx.shadowColor=this.color; ctx.fill(); ctx.restore(); }
+  }
+  class Rocket {
+    constructor() {
+      this.x = Math.random()*W; this.y = H+10;
+      this.tx = Math.random()*W; this.ty = Math.random()*H*0.55+H*0.05;
+      const angle = Math.atan2(this.ty-this.y,this.tx-this.x), speed = Math.random()*5+8;
+      this.vx = Math.cos(angle)*speed; this.vy = Math.sin(angle)*speed;
+      this.color = randomColor(); this.trail = [];
+    }
+    update() {
+      this.trail.push({x:this.x,y:this.y}); if(this.trail.length>12) this.trail.shift();
+      this.x+=this.vx; this.y+=this.vy;
+      return Math.hypot(this.tx-this.x,this.ty-this.y)<12;
+    }
+    draw() { for(let i=0;i<this.trail.length;i++){ctx.save();ctx.globalAlpha=(i/this.trail.length)*0.6;ctx.beginPath();ctx.arc(this.trail[i].x,this.trail[i].y,2,0,Math.PI*2);ctx.fillStyle=this.color;ctx.shadowBlur=6;ctx.shadowColor=this.color;ctx.fill();ctx.restore();} }
+    explode() { const count=Math.floor(Math.random()*60)+80; for(let i=0;i<count;i++) particles.push(new Particle(this.x,this.y,this.color)); }
+  }
+  let lastLaunch=0;
+  function loop(ts) {
+    ctx.clearRect(0,0,W,H);
+    if(ts-lastLaunch>700+Math.random()*800){rockets.push(new Rocket());lastLaunch=ts;}
+    rockets = rockets.filter(r=>{const done=r.update();r.draw();if(done){r.explode();return false;}return true;});
+    particles = particles.filter(p=>{p.update();p.draw();return p.alpha>0;});
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+
+document.addEventListener('click', function(e) {
+  for(let i=0;i<8;i++){
+    const h=document.createElement('div'); h.className='heart-burst';
+    const angle=(Math.PI*2/8)*i, dist=Math.random()*80+40;
+    h.style.setProperty('--tx',Math.cos(angle)*dist+'px');
+    h.style.setProperty('--ty',Math.sin(angle)*dist+'px');
+    h.style.left=e.clientX+'px'; h.style.top=e.clientY+'px';
+    h.textContent=['💖','🌸','✨','🌹','💕','⭐'][Math.floor(Math.random()*6)];
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),1300);
+  }
+});
+
+function updateClock(){
+  const now=new Date();
+  document.getElementById('cd-h').textContent=String(now.getHours()).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(now.getMinutes()).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(now.getSeconds()).padStart(2,'0');
+}
+setInterval(updateClock,1000); updateClock();
+</script>
+</body>
+</html>
